@@ -1,6 +1,6 @@
 leetcode
 ========
-Count_and_Say
+Count_and_Say <br>
 Longest_Consecutive_Sequence     //双向确认是否连续，避免重复的n^2复杂度 <br>
 Palindrome_Partitioning          //DP，避免递归调用，利用数组储存已算出来的数值，由后向前逐渐增加字符串处理 <br>
 Palindrome_Partitioning_2        //同上 <br>
