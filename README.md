@@ -13,3 +13,5 @@ Binary_Tree_Maximum_Path_Sum     //注意：不一定经过根节点，DP-DFS，
 Best_Time_to_Buy_and_Sell_Stock  //遍历每次求当前节点与前面节点差更新差的最大值，然后更新节点的最小值 <br>
 Best_Time_to_Buy_and_Sell_Stock_2   //遍历当前价格减去前一个价格，所有整数求和 <br>
 Best_Time_to_Buy_and_Sell_Stock_3   //动态规划，某个节点前方一次交易最大值+后方一次交易最大值，所有结果去最大，可以遍历缓存结果的对应一次交易最大值，O(n)。 <br>
+Triangle                         //自底向上动态规划计算，更新输入的vector即可，不需要额外空间
+Distinct_Subsequences            //矩阵二维的动态规划，类似于计算编辑距离的方法，仅仅是状态方程不一样而已
