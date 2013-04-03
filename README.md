@@ -18,5 +18,5 @@ Distinct_Subsequences            //矩阵二维的动态规划，类似于计算
 Flatten_Binary_Tree_to_Linked_List            //令人崩溃的一道题，用C++会runtime error，但是vc++和g++都是没有问题的。经测试貌似是自己新建的TreeNode不能访问，或者干脆在定义一个TreeNode是否构造函数会编译错误，却没有输出任何信息，但是前几道涉及TreeNode的题目并没有出现类似问题，目测leetcode在处理C++的struct甚至是class时候会存在bug！！最后改用java实现非常简单。整个问题不难，前序遍历二叉树，记录转化成的新的List的最后一个节点，便于续接，或者每哥节点将其右子树全部转移到左子树的最右叶子节点，然后左子树全部移到右子树位置，左子树清空。 <br>
 Path_Sum                         //DFS， 递归，每个节点值更新为父节点同当前节点之和，叶子节点值同期望值比较 <br>
 Path_Sum_2                       //DFS， 递归调用子节点时将父节点值+当前节点值的和传进子节点中，然后在子节点中进行比较。调用完子节点之后如果子节点存在结果，将子节点返回的向量中依次添加完当前节点值后返回。 <br>
-Pascal's_Triangle                //按顺序生成新的vector，push到二维vector中就可以了，注意边界处理
-Pascal's_Triangle_2              //每次缓存vector，然后计算更新当前vector即可，注意边界处理
+Pascal's_Triangle                //按顺序生成新的vector，push到二维vector中就可以了，注意边界处理 <br>
+Pascal's_Triangle_2              //每次缓存vector，然后计算更新当前vector即可，注意边界处理 <br>
