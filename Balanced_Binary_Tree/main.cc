@@ -41,6 +41,11 @@ void get_depth(TreeNode *root){
 bool balanced(TreeNode *root){
 	int left_depth = 0;
 	int right_depth = 0;
+	if (root == NULL)
+	{
+		/* code */
+		return true;
+	}
 	if (root ->left != NULL)
 	{
 		/* code */
@@ -51,7 +56,17 @@ bool balanced(TreeNode *root){
 		/* code */
 		right_depth = root ->right ->val;
 	}
-	return abs(left_depth - right_depth) <= 1;
+	if (abs(left_depth - right_depth) > 1)
+	{
+		/* code */
+		return false;
+	}
+	else if (!balanced(root ->left) || !balanced(root ->right))
+	{
+		/* code */
+		return false;
+	}
+	return true;
 }
 
 bool isBalanced(TreeNode *root){
@@ -70,13 +85,17 @@ int main(int argc, char const *argv[])
 	/* code */
 	TreeNode root(1);
 	TreeNode left1(2);
-	TreeNode right1(3);
+	TreeNode right1(2);
 	root.left = &left1;
 	root.right = &right1;
-	TreeNode left2(4);
+	TreeNode left2(3);
 	left1.left = &left2;
-	TreeNode left3(5);
+	TreeNode right2(3);
+	right1.right = &right2;
+	TreeNode left3(4);
+	TreeNode right3(4);
 	left2.left = &left3;
+	right2.right = &right3;
 	cout <<isBalanced(&root) <<endl;
 	return 0;
 }

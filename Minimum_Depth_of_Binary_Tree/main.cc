@@ -22,12 +22,24 @@ int minDepth(TreeNode *root){
 		/* code */
 		return 0;
 	}
-	if (root ->left == NULL || root ->right == NULL)
+	if (root ->left == NULL && root ->right == NULL)
 	{
 		/* code */
 		return 1;
 	}
-	return get_min(minDepth(root ->left), minDepth(root ->right))+1;
+	else if (root ->left == NULL && root ->right != NULL)
+	{
+		/* code */
+		return minDepth(root ->right)+1;
+	}
+	else if (root ->left != NULL && root ->right == NULL)
+	{
+		/* code */
+		return minDepth(root ->left)+1;
+	}
+	else {
+		return get_min(minDepth(root ->left), minDepth(root ->right))+1;
+	}
 }
 
 int main(int argc, char const *argv[])
@@ -38,8 +50,8 @@ int main(int argc, char const *argv[])
 	TreeNode right1(3);
 	TreeNode left2(4);
 	root.left = &left1;
-	root.right = &right1;
-	left1.left = &left2;
+	//root.right = &right1;
+	//left1.left = &left2;
 	cout <<minDepth(&root) <<endl;
 	return 0;
 }

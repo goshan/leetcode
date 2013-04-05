@@ -20,3 +20,5 @@ Path_Sum                         //DFS， 递归，每个节点值更新为父�
 Path_Sum_2                       //DFS， 递归调用子节点时将父节点值+当前节点值的和传进子节点中，然后在子节点中进行比较。调用完子节点之后如果子节点存在结果，将子节点返回的向量中依次添加完当前节点值后返回。 <br>
 Pascal's_Triangle                //按顺序生成新的vector，push到二维vector中就可以了，注意边界处理 <br>
 Pascal's_Triangle_2              //每次缓存vector，然后计算更新当前vector即可，注意边界处理 <br>
+Minimun_Binary_Tree              //简单，递归，DP <br>
+Balanced_Binary_Tree             //简单，先递归DP求解所有节点深度，然后再递归一次判断所有节点的左右子树深度差，不符合直接返回 <br>
