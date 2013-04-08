@@ -24,3 +24,4 @@ Minimun_Binary_Tree              //简单，递归，DP <br>
 Balanced_Binary_Tree             //简单，先递归DP求解所有节点深度，然后再递归一次判断所有节点的左右子树深度差，不符合直接返回 <br>
 Populating_Next_Right_Pointers_in_Each_Node          //为了统一，也按照不完全二叉树进行算法设计和没实现，方法见下 <br>
 Populating_Next_Right_Pointers_in_Each_Node_2        //不完全二叉树，BFS，每个节点计算其各个子节点的next指针，对于右子结点的next指针查找父节点的next，直到next存在子节点停止，将该next节点的最左边子节点作为当前右子节点的next指针 <br>
+Convert_Sorted_List_to_Binary_Search_Tree      //递归，找到链表的中间节点，然后递归实现前半部分和后半部分
