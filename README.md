@@ -6,8 +6,8 @@ Palindrome_Partitioning          //DP，避免递归调用，利用数组储存�
 Palindrome_Partitioning_2        //同上 <br>
 Sum_Root_to_Leaf_Numbers         //DFS <br>
 Surrounded_Regions               //由四周‘O’开始向内检索，利用第三个字符对可以变换的‘O’进行暂存 <br>
-Word_Lader_2                     //BFS，避免DFS记录以遍历的节点错误，且保证优先找到最短的路径 <br>
-Word_Lader                       //同上 <br>
+Word_Lader                       //BFS，避免DFS记录以遍历的节点错误，且保证优先找到最短的路径,  按照图的方法判断任意两个节点是否差一个字母，复杂度为O(n^2)，会超时，因此修改方法：对当前节点对每个位置遍历26个字母修改，判断修改后的单词是否在已有的dict中。这样对大数据较快 <br>
+Word_Lader_2                     //基本方法同上，不同的是需要记录父节点便于输出整个路径，同时找到路径后要继续搜索以输出全部可能路径，同时需要逐层记录层数以及对dict删除该层的遍历过的节点，而不是遍历一个删一个，因为上到题只要找到一条最短路径就可以了，但是本题需要全部找出。(这题大数据没有过，Time Limited) <br>
 Valid_Palindrome                 //从两头开始遍历字符串，注意长度为0的输入
 Binary_Tree_Maximum_Path_Sum     //注意：不一定经过根节点，DP-DFS，对于每个节点计算从该节点开始向下子节点和最大值，便于后续计算，注意子节点最大值为负时仅算该节点本身，同时记录该节点，该节点+左子，该节点+右子，该节点+左子+右子的最大值同当前最大结果比较，更新结果。 <br>
 Best_Time_to_Buy_and_Sell_Stock  //遍历每次求当前节点与前面节点差更新差的最大值，然后更新节点的最小值 <br>
