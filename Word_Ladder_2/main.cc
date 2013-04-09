@@ -8,36 +8,62 @@ using namespace std;
 
 
 
-struct path{
-	string content;
-	path *parent;
-};
+vector<vector<int> > road;
+vector<string> dict_con;
+map<string, int> id;
 
-void add_one_step(path *current, set<string> &dict, queue<path *> &cache, int &next_num, vector<string> &level_used){
-	string origin = current ->content;
-	for (int i = 0; i < origin.length(); ++i)
+void build_road(set<string> &dict){
+	for (set<string> ::const_iterator it=dict.begin(); it!=dict.end(); it++){
+		id[*it] = dict_con.size();
+		dict_con.push_back(*it);
+		road.push_back(vector<int> (dict.size(), 0));
+	}
+	for (int i = 0; i < dict_con.size(); ++i)
 	{
 		/* code */
-		char t_c = origin[i];
-		for (char c = 'a'; c <= 'z'; c++){
-			if (c == t_c)
-			{
-				/* code */
-				continue;
+		string current = dict_con[i];
+		for (int j = 0; j < current.length(); ++j)
+		{
+			/* code */
+			char t_c = current[j];
+			for (char c = 'a'; c <= 'z'; c++){
+				if (c == t_c)
+				{
+					/* code */
+					continue;
+				}
+				current[j] = c;
+				if (id.count(current))
+				{
+					/* code */
+					road[i][id[current]] = 1;
+				}
 			}
-			origin[i] = c;
-			if (dict.count(origin))
-			{
-				/* code */
-				next_num ++;
-				path *p = new path;
-				p ->content = origin;
-				p ->parent = current;
-				cache.push(p);
-				level_used.push_back(origin);
-			}
+			current[j] = t_c;
 		}
-		origin[i] = t_c;
+	}
+}
+
+void gen_res(int e, int s, const vector<vector<int> > &parents, vector<vector<string> > &res, vector<int> temp_path){
+	if (e == s)
+	{
+		/* code */
+		vector<string> elem;
+		elem.push_back(dict_con[s]);
+		for (int i = temp_path.size()-1; i >= 0; --i)
+		{
+			/* code */
+			elem.push_back(dict_con[temp_path[i]]);
+		}
+		res.push_back(elem);
+		temp_path.clear();
+		return;
+	}
+	temp_path.push_back(e);
+	for (int i = 0; i < parents[e].size(); ++i)
+	{
+		/* code */
+		gen_res(parents[e][i], s, parents, res, temp_path);
 	}
 }
 
@@ -45,39 +71,52 @@ void add_one_step(path *current, set<string> &dict, queue<path *> &cache, int &n
 vector<vector<string> > findLadders(string start, string end, set<string> &dict) {
 	// Start typing your C/C++ solution below
 	// DO NOT write int main() function
-	vector<path *> final;
+	build_road(dict);
+	int level = 1;
 	int current_num = 1;
 	int next_num = 0;
 	bool final_level = false;
-	vector<string> level_used;
-	queue<path *> cache;
-	path *s = new path;
-	s ->content = start;
-	s ->parent = NULL;
+	int s = id[start];
+	int e = id[end];
+	queue<int> cache;
 	cache.push(s);
+	vector<vector<int> > parents(dict.size());
+	vector<int> dis(dict.size(), 1000000);
 	while (cache.size() != 0){
-		path *temp = cache.front();
+		int temp = cache.front();
 		cache.pop();
 		current_num --;
-		if (temp ->content == end)
+		if (temp == e)
 		{
 			/* code */
 			final_level = true;
-			final.push_back(temp);
 		}
 		else {
-			add_one_step(temp, dict, cache, next_num, level_used);
+			vector<int> child = road[temp];
+			for (int i = 0; i < child.size(); ++i)
+			{
+				/* code */
+				if (child[i] == 1 && level <= dis[i])
+				{
+					/* code */
+					if (level < dis[i])
+					{
+						/* code */
+						parents[i].clear();
+					}
+					dis[i] = level;
+					next_num ++;
+					parents[i].push_back(temp);
+					cache.push(i);
+					road[i][temp] = 0;
+				}
+			}
 		}
 
 		if (current_num == 0)
 		{
 			/* code */
-			for (int i = 0; i < level_used.size(); ++i)
-			{
-				/* code */
-				dict.erase(level_used[i]);
-			}
-			level_used.clear();
+			level ++;
 			current_num = next_num;
 			next_num = 0;
 			if (final_level)
@@ -87,29 +126,10 @@ vector<vector<string> > findLadders(string start, string end, set<string> &dict)
 			}
 		}
 	}
-	vector<vector<string> > temp_res;
-	for (int i = 0; i < final.size(); ++i)
-	{
-		/* code */
-		path *p = final[i];
-		vector<string> elem;
-		while (p != NULL){
-			elem.push_back(p ->content);
-			p = p ->parent;
-		}
-		temp_res.push_back(elem);
-	}
-	vector<vector<string> > res;
-	for (int i = 0; i < temp_res.size(); ++i)
-	{
-		/* code */
-		vector<string> elem;
-		/* code */
-		for (int j=temp_res[i].size()-1; j>=0; j--){
-			elem.push_back(temp_res[i][j]);
-		}
-		res.push_back(elem);
-	}
+
+	vector<vector<string> >res;
+	vector<int> temp_path;
+	gen_res(e, s, parents, res, temp_path);
 	return res;
 }
 
@@ -117,11 +137,16 @@ vector<vector<string> > findLadders(string start, string end, set<string> &dict)
 int main(int argc, char const *argv[])
 {
 	/* code */
-	string start = "hot";
-	string end = "dog";
+	string start = "hit";
+	string end = "cog";
 	set<string> dict;
 	dict.insert("hot");
+	dict.insert("cog");
+	dict.insert("dot");
 	dict.insert("dog");
+	dict.insert("hit");
+	dict.insert("lot");
+	dict.insert("log");
 	vector<vector<string> > res = findLadders(start, end, dict);
 	for (int i = 0; i < res.size(); ++i)
 	{
