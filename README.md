@@ -27,3 +27,6 @@ Populating_Next_Right_Pointers_in_Each_Node_2        //不完全二叉树，BFS�
 Convert_Sorted_List_to_Binary_Search_Tree      //递归，找到链表的中间节点，然后递归实现前半部分和后半部分 <br>
 Convert_Sorted_Array_to_Binary_Search_Tree     //递归，中间节点做根节点，然后递归实现前半部分和后半部分 <br>
 Binary_Tree_Level_Order_Traversal_2            //BFS，最后按层次逆序输出 <br>
+Construct_Binary_Tree_from_Inorder_and_Postored_Traversal        //根据后序遍历最后一个节点确定根节点，然后找到中序遍历中根节点，将中序遍历分为左右子树两部分，删去后序遍历中最后一个节点也就是当前根节点，然后先递归右节点，然后递归左节点 <br>
+Construct_Binary_Tree_from_Preorder_and_Inorder_Traversal        //根据前序遍历第一个节点确定根节点，然后找到中序遍历中根节点，将中序遍历分为左右子树两部分，删去前序遍历中第一个节点也就是当前根节点，然后先递归左节点，然后递归右节点 <br>
+(根据上两题总结，前中后序遍历中的任意一种都不能确定一个二叉树，至少两种遍历才能确定，同时其中必须含有中序遍历以区别左右子树，也就是说前序遍历和后序遍历不能确定一颗二叉树)  <br>
