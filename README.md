@@ -97,3 +97,6 @@ BFS 遍历所有节点，然后按照要求每行变序输出 <br>
 Binary_Tree_Level_Order_Traversal <br>
 BFS 遍历所有节点，然后直接输出 <br>
 <br>
+Symmetric Tree <br>
+BFS, 子节点为空也压入队列，以#或者-100000代替，只不过不再遍历空节点的子节点，每层遍历结束后判断该行是否对称 <br>
+<br>
