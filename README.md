@@ -60,7 +60,7 @@ Pascal's_Triangle <br>
 Pascal's_Triangle_2 <br>
 每次缓存vector，然后计算更新当前vector即可，注意边界处理 <br>
 <br>
-Minimun_Binary_Tree <br>
+Minimun_Depth_of_Binary_Tree <br>
 简单，递归，DP <br>
 <br>
 Balanced_Binary_Tree <br>
@@ -87,4 +87,13 @@ Construct_Binary_Tree_from_Inorder_and_Postored_Traversal <br>
 Construct_Binary_Tree_from_Preorder_and_Inorder_Traversal <br>
 根据前序遍历第一个节点确定根节点，然后找到中序遍历中根节点，将中序遍历分为左右子树两部分，删去前序遍历中第一个节点也就是当前根节点，然后先递归左节点，然后递归右节点 <br>
 (根据上两题总结，前中后序遍历中的任意一种都不能确定一个二叉树，至少两种遍历才能确定，同时其中必须含有中序遍历以区别左右子树，也就是说前序遍历和后序遍历不能确定一颗二叉树)  <br>
+<br>
+Maximun_Depth_of_Binary_Tree <br>
+同Minimun_Depth_of_Binary_Tree， 简单，递归，DP <br>
+<br>
+Binary_Tree_Zigzag_Level_Order_Traversal <br>
+BFS 遍历所有节点，然后按照要求每行变序输出 <br>
+<br>
+Binary_Tree_Level_Order_Traversal <br>
+BFS 遍历所有节点，然后直接输出 <br>
 <br>
