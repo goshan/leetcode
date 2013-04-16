@@ -11,6 +11,11 @@ using namespace std;
 bool isInterleave(string s1, string s2, string s3){
 	// Start typing your C/C++ solution below
 	// DO NOT write int main() function
+	if (s1.length()+s2.length() != s3.length())
+	{
+		/* code */
+		return false;
+	}
 	vector<vector<bool> > interleave (s1.length()+1, vector<bool>(s2.length()+1, false));
 	interleave[0][0] = true;
 	for (int i = 0; i < s1.length(); ++i)

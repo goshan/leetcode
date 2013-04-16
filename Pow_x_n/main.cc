@@ -1,11 +1,12 @@
 #include <iostream>
-#include <math.h>
 using namespace std;
 
 
 
 
-double power(double x, int n){
+double pow(double x, int n) {
+	// Start typing your C/C++ solution below
+	// DO NOT write int main() function
 	if (n == 0)
 	{
 		/* code */
@@ -18,13 +19,14 @@ double power(double x, int n){
 		x = 1/x;
 	}
 
+	double temp = pow(x, n/2);
 	if (n%2 == 0)
 	{
 		/* code */
-		return pow(power(x, n/2), 2);
+		return temp*temp;
 	}
 	else {
-		return pow(power(x, n/2), 2)*x;
+		return temp*temp*x;
 	}
 }
 
@@ -34,6 +36,6 @@ int main(int argc, char const *argv[])
 	/* code */
 	double x = 1.2;
 	int n = -3;
-	cout <<power(x, n) <<endl;
+	cout <<pow(x, n) <<endl;
 	return 0;
 }

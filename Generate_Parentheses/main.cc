@@ -8,10 +8,6 @@ using namespace std;
 
 
 void generate(int n, int stack, string s, vector<string> &res){
-	cout <<n <<endl;
-	cout <<stack <<endl;
-	cout <<s <<endl;
-	cout <<"=======" <<endl;
 	if (n == 0)
 	{
 		/* code */
@@ -35,7 +31,9 @@ void generate(int n, int stack, string s, vector<string> &res){
 	}
 }
 
-vector<string> generateParentheses(int n){
+vector<string> generateParenthesis(int n) {
+	// Start typing your C/C++ solution below
+	// DO NOT write int main() function
 	vector<string> res;
 	string s = "";
 	int stack = 0;
@@ -46,7 +44,7 @@ vector<string> generateParentheses(int n){
 int main(int argc, char const *argv[])
 {
 	/* code */
-	vector<string> res = generateParentheses(5);
+	vector<string> res = generateParenthesis(3);
 	for (int i = 0; i < res.size(); ++i)
 	{
 		/* code */
