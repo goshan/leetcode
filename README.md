@@ -143,3 +143,9 @@ Subsets_2 <br>
 Decode_Ways <br>
 DP，较为简单，各种边界组合情况（‘0’的处理）需要注意 <br>
 <br>
+Subsets <br>
+Subsets_2的简化版，不需要判断是否有重复元素 <br>
+<br>
+Plus_One <br>
+末尾加1之后从后向前遍历进位，如果首位仍需要进位则向量添加元素，平移所有元素后首位变为1 <br>
+<br>
