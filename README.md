@@ -171,4 +171,19 @@ Remove_Duplicates_from_Sorted_List <br>
 Remove_Duplicates_from_Sorted_List_2 <br>
 简单，遍历一遍，利用一个指针sub记录连续重复数值的开始位置的前一个节点，每次判断当前节点同下一节点数值是否相同，相同则继续遍历下一个节点，否则判断sub节点同当前节点是否相邻，如果相邻则sub后移，当前指针后移，否则删除从sub后的一个节点开始到当前节点结束的所有节点 <br>
 <br>
+Word_Search <br>
+一次通过，较为简单，DFS，注意递归时不需要复制多个board，仅修改一个就可以，但是注意回朔 <br>
+<br>
+Search_in_Rotated_Sorted_Array <br>
+二分查找，只不过在修改左右边界的时候注意判断条件 <br>
+<br>
+Search_in_Rotated_Sorted_Array_2 <br>
+二分查找，同上题类似，不同的是判断区间是不能仅比较l和m的值，而是遍历该段判断是否满足非逆序 <br>
+其实我想吐槽的是这两道题尼玛遍历比较也他么能过！！！ <br>
+<br>
+Remove_Duplicates_from_Sorted_Array <br>
+一遍过，仅允许常数空间，因此发现重复数后将后续数依次前移，同时长度减小1 <br>
+<br>
+Remove_Duplicates_from_Sorted_Array_2 <br>
+一遍过，同上题近似，不用的是需要一个计数器记录，重复一次时不进行删除，第二次重复时才进行删除 <br>
 <br>
