@@ -187,3 +187,9 @@ Remove_Duplicates_from_Sorted_Array <br>
 Remove_Duplicates_from_Sorted_Array_2 <br>
 一遍过，同上题近似，不用的是需要一个计数器记录，重复一次时不进行删除，第二次重复时才进行删除 <br>
 <br>
+Combinations <br>
+递归，分别计算(n-1, k)和(n-1, k-1)的结果，(n-1, k-1)的结果中每个向量后均加入n，然后再和(n-1, k)的结果合并起来就可以了，当k=1时，1..n每个数字形成一个向量加入到结果中返回，当n==k时，1..n形成一个向量加入结果中返回 <br>
+<br>
+Minimum_Window_Substring <br>
+要求线性时间，并不简单，利用数组记录head到tail之间各个字母出现的次数。每次遍历tail判断符合条件字母总数是否满足，当前的字母个数是否满足，然后检查head能够后移，以使得窗口长度最小，然后同最小长度比较 <br>
+<br>
