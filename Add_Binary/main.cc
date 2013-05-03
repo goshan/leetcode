@@ -6,7 +6,9 @@ using namespace std;
 
 
 
-string addBinary(string a, string b){
+string addBinary(string a, string b) {
+	// Start typing your C/C++ solution below
+	// DO NOT write int main() function
 	string res = a.length() < b.length() ? b : a;
 	string temp = a.length() < b.length() ? a : b;
 	int sub = res.length()-temp.length();

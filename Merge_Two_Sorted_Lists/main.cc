@@ -5,7 +5,7 @@ using namespace std;
 
 
 
-
+// Definition for singly-linked list.
 struct ListNode {
 	int val;
 	ListNode *next;
@@ -13,36 +13,40 @@ struct ListNode {
 };
 
 
-ListNode *mergeList(ListNode *a, ListNode *b){
-	if (a == NULL)
+
+ListNode *mergeTwoLists(ListNode *l1, ListNode *l2) {
+	// Start typing your C/C++ solution below
+	// DO NOT write int main() function
+	if (l1 == NULL)
 	{
 		/* code */
-		return b;
+		return l2;
 	}
-	else if (b == NULL){
-		return a;
+	else if (l2 == NULL){
+		return l1;
 	}
-	ListNode *res = a ->val < b ->val ? a : b;
+	ListNode *res = l1 ->val < l2 ->val ? l1 : l2;
 	ListNode *res_pointer = res;
-	ListNode *a_pointer = a ->val < b ->val ? a ->next : a;
-	ListNode *b_pointer = a ->val < b ->val ? b : b ->next;
-	while (a_pointer != NULL && b_pointer != NULL){
-		if (a_pointer ->val < b_pointer ->val)
+	ListNode *l1_pointer = l1 ->val < l2 ->val ? l1 ->next : l1;
+	ListNode *l2_pointer = l1 ->val < l2 ->val ? l2 : l2 ->next;
+	while (l1_pointer != NULL && l2_pointer != NULL){
+		if (l1_pointer ->val < l2_pointer ->val)
 		{
 			/* code */
-			res_pointer ->next = a_pointer;
+			res_pointer ->next = l1_pointer;
 			res_pointer = res_pointer ->next;
-			a_pointer = a_pointer ->next;
+			l1_pointer = l1_pointer ->next;
 		}
 		else {
-			res_pointer ->next = b_pointer;
+			res_pointer ->next = l2_pointer;
 			res_pointer = res_pointer ->next;
-			b_pointer = b_pointer ->next;
+			l2_pointer = l2_pointer ->next;
 		}
 	}
-	res_pointer ->next = a_pointer==NULL ? b_pointer : a_pointer;
+	res_pointer ->next = l1_pointer==NULL ? l2_pointer : l1_pointer;
 	return res;
 }
+
 
 
 int main(int argc, char const *argv[])
@@ -56,7 +60,7 @@ int main(int argc, char const *argv[])
 	a1.next = &a2;
 	a2.next = &a3;
 	b1.next = &b2;
-	ListNode *res = mergeList(&a1, &b1);
+	ListNode *res = mergeTwoLists(&a1, &b1);
 	while (res != NULL){
 		cout <<res ->val <<endl;
 		res = res ->next;

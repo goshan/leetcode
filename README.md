@@ -217,3 +217,12 @@ Sqrt_X <br>
 Text_Justification <br>
 比较简单，按照题目要求完成即可，注意边界条件 <br>
 <br>
+Add_Binary <br>
+比较简单，利用一个bool记录是否进位即可 <br>
+<br>
+Merge_Two_Sorted_Lists <br>
+同上方归并数组题目类似，不同的是这里更加简单，因为不存在元素移动的问题，因此不需要从后向前遍历，之前从前向后遍历修改指针即可 <br>
+<br>
+Minimum_Path_Sum <br>
+同样很简单，DP，利用矩阵保存从左上角开始到每个节点的最短距离 <br>
+<br>
