@@ -296,3 +296,9 @@ Permutations <br>
 Permutations_2 <br>
 利用map记录每个元素出现次数，然后递归结果中每一位可能的数值，每次递归循环从map中取出一个key，然后将其对应的value减1 <br>
 <br>
+Wildcard_Matching <br>
+DP，不过需要优化一下，不能采用二维矩阵，否则会超出内存限制，于是仅使用一个向量保存每次的结果，然后p++后更新这个数组 <br>
+<br>
+Multiply_Strings <br>
+二重循环，对于s1的第i位和s2的第j位相乘结果累加至结果的i+j位 <br>
+<br>
