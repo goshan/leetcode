@@ -6,7 +6,7 @@
 # @param {Integer} x
 # @return {Integer}
 def reverse(x)
-	max = 2147483648  # max integer for 32bit
+	max = 2147483647  # max integer for 32bit
 	mark = x < 0 ? -1 : 1
 	x *= mark
 	y = 0
